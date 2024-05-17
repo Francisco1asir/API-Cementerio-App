@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/login.css">
+  <title>Crear Nuevo Usuario</title>
+  <script src="./js/script.js"></script>
+  <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.freepik.com/512/2983/2983665.png">
+</head>
+
+<body id="login">
+  <div class="container">
+    <div class="well">
+      <form action="#" method="post" id="create-user-form">
+        <hggroup>
+          <h1>Crear una cuenta</h1>
+          <h2>Nueva cuenta para acceder</h2>
+        </hggroup>
+        <div>
+          <span>Username:</span>
+          <input type="email" id="username" name="username" required><br>
+          <label for="username"></label>
+        </div>
+
+        <div>
+          <span>Password:</span>
+          <input type="password" id="password" name="password" pattern="(?=.*\d)(?=.*[a-zA-Z]).{8,}" title="La contraseña debe contener al menos 8 caracteres, incluyendo al menos un número." required><br>
+          <label for="password"></label>
+        </div>
+        <a href="./login.html">Tienes una cuenta? Inicia sesión</a>
+
+        <button class=button id="btn-submit">
+          <span class="button-text" type="submit">Crear cuenta</span>
+          <div class="button-loader">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </button>
+      </form>
+    </div>
+
+    <img src="https://cdn.pixabay.com/photo/2023/03/27/19/54/roses-7881586_1280.png">
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const createUserForm = document.getElementById('create-user-form');
+
+      createUserForm.addEventListener('submit', event => {
+        event.preventDefault();
+
+        const username = createUserForm.username.value;
+        const password = createUserForm.password.value;
+
+        // Hash de la contraseña
+        crypto.subtle.digest('SHA-256', new TextEncoder().encode(password))
+          .then(hashBuffer => {
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
+            const hashedPassword = hashHex;
+
+            // Hacer una solicitud para verificar si el nombre de usuario ya existe
+            fetch('http://localhost:3001/login')
+              .then(response => response.json())
+              .then(data => {
+                const usernames = data.map(user => user.username);
+                if (usernames.includes(username)) {
+                  alert('El nombre de usuario ya está en uso. Por favor, elige otro.');
+                } else {
+                  // Envío del nuevo usuario con la contraseña cifrada al servidor
+                  const newUser = {
+                    username: username,
+                    password: hashedPassword
+                  };
+
+                  fetch('http://localhost:3001/login', {
+                      method: 'POST',
+                      headers: {
+                        'Content-Type': 'application/json'
+                      },
+                      body: JSON.stringify(newUser)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                      console.log('Usuario creado exitosamente:', data);
+                      alert('Usuario creado exitosamente.');
+                      // Recargar la página después de crear exitosamente un nuevo usuario
+                      window.location.reload();
+                    })
+                    .catch(error => {
+                      console.error('Error al crear usuario:', error);
+                      alert('Ha ocurrido un error al intentar crear el usuario. Por favor, inténtelo de nuevo más tarde.');
+                    });
+                }
+              })
+              .catch(error => {
+                console.error('Error al verificar si el nombre de usuario ya existe:', error);
+                alert('Ha ocurrido un error al verificar si el nombre de usuario ya existe. Por favor, inténtelo de nuevo más tarde.');
+              });
+          })
+          .catch(error => console.error('Error al cifrar la contraseña:', error));
+      });
+    });
+
+  </script>
+</body>
+
+</html>

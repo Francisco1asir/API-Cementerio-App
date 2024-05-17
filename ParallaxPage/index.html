@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="./css/plan.css">
+    <link rel="stylesheet" href="./css/querys.css">
+    <script src="./js/vuelve.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.freepik.com/512/2983/2983665.png">
+    <title>API Cementerio</title>
+</head>
+
+<body>
+    <header>
+        <nav class="socials">
+            <a href="https://github.com" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <a href="https://youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://tiktok.com" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+        </nav>
+        <nav class="navigation">
+            <a href="#home">Home<span></span></a>
+            <a href="#service">Servicios<span></span></a>
+            <a href="#about">About<span></span></a>
+            <a href="#prod">Productos<span></span></a>
+            <a id="logout-link" style="display: none;" href="./backend.html">Backend</a>
+            <span id="login-status"></span>
+            <button id="logout-button" style="display: none;"><i class="fa-solid fa-right-from-bracket"></i></button>
+        </nav>
+
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const loginStatus = document.getElementById('login-status');
+                const logoutButton = document.getElementById('logout-button');
+                const logoutLink = document.getElementById('logout-link');
+
+                // Verificar si hay un nombre de usuario almacenado en localStorage
+                const username = localStorage.getItem('username');
+                if (username) {
+                    loginStatus.textContent = `${username}`; // Mostrar el nombre de usuario
+                    logoutButton.style.display = 'inline'; // Mostrar el boton de cerrar sesión
+                } else {
+                    loginStatus.innerHTML = '<a href="./login.html">Login<span></span></a>'; // Si no hay usuario logeado mostrar el enlace de login
+                }
+
+                // Si el usuario está logeado, mostrar el enlace de cierre de sesión
+                if (username) {
+                    logoutLink.style.display = 'inline'; // Mostrar el enlace de cerrar sesión
+                }
+
+                logoutButton.addEventListener('click', () => {
+                    // Eliminar los datos del usuario del localStorage al hacer clic en "Cerrar sesión"
+                    localStorage.removeItem('username');
+                    localStorage.removeItem('token');
+
+                    // Redirigir al usuario a la página de login después de cerrar sesión
+                    window.location.href = './login.html';
+                });
+            });
+        </script>
+        <nav role="navigation">
+            <div id="menuToggle">
+                <input type="checkbox" />
+                <span></span>
+                <span></span>
+                <span></span>
+                <ul id="menu">
+                    <a href="./index.html#">
+                        <li>Home</li>
+                    </a>
+                    <a href="./index.html#service">
+                        <li>Service</li>
+                    </a>
+                    <a href="./index.html#about">
+                        <li>About</li>
+                    </a>
+                    <a href="./index.html#prod">
+                        <li>Productos</li>
+                    </a>
+                    <nav class="socials2">
+                        <a href="https://github.com" target="_blank"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://tiktok.com" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                    </nav>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="snowflakes">
+        <div class="snowflake">
+            <img src="https://media1.giphy.com/media/0xR7MUO0hJfWtco7C6/giphy.gif" />
+        </div>
+        <div class="snowflake">
+            <img src="https://media1.giphy.com/media/0xR7MUO0hJfWtco7C6/giphy.gif" />
+        </div>
+        <div class="snowflake">
+            <img src="https://media1.giphy.com/media/0xR7MUO0hJfWtco7C6/giphy.gif" />
+        </div>
+        <div class="snowflake">
+            <img src="https://media1.giphy.com/media/0xR7MUO0hJfWtco7C6/giphy.gif" />
+        </div>
+        <div class="snowflake">
+            <img src="https://media1.giphy.com/media/0xR7MUO0hJfWtco7C6/giphy.gif" />
+        </div>
+        <div class="snowflake">
+            <img src="https://media1.giphy.com/media/0xR7MUO0hJfWtco7C6/giphy.gif" />
+        </div>
+        <div class="snowflake">
+            <small>apruebame</small><img src="https://media1.giphy.com/media/0xR7MUO0hJfWtco7C6/giphy.gif" />
+        </div>
+        <div class="snowflake">
+            <img src="https://media1.giphy.com/media/0xR7MUO0hJfWtco7C6/giphy.gif" />
+        </div>
+        <div class="snowflake">
+            <img src="https://media1.giphy.com/media/0xR7MUO0hJfWtco7C6/giphy.gif" />
+        </div>
+        <div class="snowflake">
+            <img src="https://media1.giphy.com/media/0xR7MUO0hJfWtco7C6/giphy.gif" />
+        </div>
+    </div>
+    <section class="parallax" id="parallax">
+        <!-- <video autoplay muted loop id="video-bg">
+            <source src="./videosunset.mp4" type="video/mp4">
+        </video> -->
+        <h2 id="text">API Cementerio</h2>
+        <img src="./img/parallax/tree-left.png" id="tree-left">
+        <img src="./img/parallax/tree-right.png" id="tree-right">
+        <img src="./img/parallax/gate-left.png" id="gate-left">
+        <img src="./img/parallax/gate-right.png" id="gate-right">
+        <img src="./img/parallax/grass.png" id="grass">
+    </section>
+    <section class="sec">
+        <h2 id="home">Home </h2>
+
+
+        </div>
+        <p>
+            ¡Bienvenidos a API Cementerio, el último hogar para tus seres queridos donde la paz eterna se encuentra en
+            cada rincón! Nuestro compromiso es brindar un espacio sagrado y respetuoso para honrar la memoria de
+            aquellos que ya no están entre nosotros. Con una trayectoria de excelencia y dedicación, nos hemos
+            convertido en el lugar de descanso final preferido por muchas familias.
+        </p>
+
+        <br>
+        <p>En API Cementerio, entendemos la importancia de preservar el legado y el recuerdo de quienes amamos. Por
+            ello, ofrecemos una amplia variedad de servicios funerarios y opciones de sepultura que se adaptan a las
+            necesidades individuales de cada familia. Ya sea a través de elegantes mausoleos, tranquilos jardines
+            conmemorativos o espacios de cremación, estamos aquí para ayudarte a crear un tributo personalizado y
+            significativo.</p>
+        <br>
+        <p>Nuestra dedicada equipe está comprometida en brindar un apoyo compasivo y profesional durante cada paso del
+            proceso funerario. Desde la planificación de la ceremonia hasta el cuidado continuo del lugar de descanso,
+            nos aseguramos de que cada detalle se maneje con sensibilidad y respeto. En API Cementerio, no solo
+            proporcionamos un servicio, sino que también nos convertimos en un lugar de consuelo y reflexión para todas
+            las familias que nos honran con su confianza.</p>
+        <br>
+        <p>
+            En API Cementerio, nos enorgullece ser más que simplemente un lugar de descanso final; somos un faro de
+            esperanza y consuelo en tiempos de pérdida. Nuestra misión es proporcionar un refugio eterno donde los
+            recuerdos florezcan y perduren para siempre, recordando y honrando las vidas que han tocado y enriquecido
+            las nuestras. En este lugar sagrado, cada historia tiene un lugar para ser contada y cada alma tiene un
+            lugar para descansar en paz.
+        </p>
+        <br>
+        <section class="parallax__group info-container item fade-in" id="service">
+            <img src="./img/img-services/gothic-coffin-design-element-for-halloween-illustration-vector-removebg-preview.png"
+                alt="Lively and colourful concert" />
+            <div class="text-containder ">
+                <h2>Entierra a todos tus muertos.</h2>
+                <p>Alquila o compra tu ataúd ahora mismo.</p>
+                <p>- Francisco Parra Navarro</p>
+                <a href="#" class="btn">Ver precios</a>
+            </div>
+        </section>
+        <section class="parallax__group info-container item fade-in">
+            <div class="text-container2 ">
+                <h2>Increibles decoraciones para tos tus muertos.</h2>
+                <p>Alquila o compra tus decoraciones ahora mismo.</p>
+                <p>- Francisco Parra Navarro</p>
+                <div>
+                    <a href="#" class="btn btn2">Ver precios</a>
+                </div>
+            </div>
+            <img src="./img/img-services/flores-removebg-preview.png" alt="Lively and colourful concert" />
+        </section>
+        <section class="parallax__group info-container item fade-in">
+            <img src="./img/img-services/phanteon.png" alt="Lively and colourful concert" />
+            <div class="text-containder ">
+                <h2>Panteones impresonantes para toda la familia.</h2>
+                <p>Tenemos panteones, por si el ajuste de cuentas era demasiado grande</p>
+                <p>- Francisco Parra Navarro</p>
+                <a href="#" class="btn">Ver precios</a>
+            </div>
+        </section>
+        <section class="parallax__group info-container item fade-in">
+            <div class="text-container2 ">
+                <h2>Eliminación de sucesos paranormales</h2>
+                <p>No aceptamos zombies en nuestra empresa, que no pagais.</p>
+                <p>- Francisco Parra Navarro</p>
+                <div>
+                    <a href="#" class="btn btn2">Ver precios</a>
+                </div>
+            </div>
+            <img src="./img/img-services/prohizombie.png" alt="Lively and colourful concert" />
+        </section>
+        <section class="parallax__group info-container item fade-in">
+            <img src="./img/img-services/urna.png" alt="Lively and colourful concert" />
+            <div class="text-containder ">
+                <h2>Hornos calentitos para los bollicaos.</h2>
+                <p>Dale la brasa como el/ella te la estuvo dando a ti, servicio de cremación.</p>
+                <p>- Francisco Parra Navarro</p>
+                <a href="#" class="btn">Ver precios</a>
+            </div>
+        </section>
+        <section class="parallax__group info-container item fade-in">
+            <div class="text-container2 ">
+                <h2>Dejamos divinas a tus parientes.</h2>
+                <p>Embalsamiento de altisima calidad de mi prima Carolina</p>
+                <p>- Francisco Parra Navarro</p>
+                <div>
+                    <a href="#" class="btn btn2">Ver precios</a>
+                </div>
+            </div>
+            <img src="./img/img-services/makeup.png" alt="Lively and colourful concert" />
+        </section>
+        <section class="parallax__group info-container item fade-in">
+            <img src="./img/img-services/cochefunebre.png" alt="Lively and colourful concert" />
+            <div class="text-containder ">
+                <h2>Transporte funebre de alta calidad</h2>
+                <p>Mi primo Julián puede llevar 4 tumbas al mismo tiempo.</p>
+                <p>- Francisco Parra Navarro</p>
+                <a href="#" class="btn">Ver precios</a>
+            </div>
+        </section>
+        <section class="parallax__group info-container item fade-in">
+            <div class="text-container2 ">
+                <h2>Misas amenas y respetuosas para el familiar.</h2>
+                <p>Montamos unos fiestones que ni España en el mundial de 2010.</p>
+                <p>- Francisco Parra Navarro</p>
+                <div>
+                    <a href="#" class="btn btn2">Ver precios</a>
+                </div>
+            </div>
+            <img src="./img/img-services/party.png" alt="Lively and colourful concert" />
+        </section>
+
+        <br>
+        <h2 id="prod">Conoce nuestro catálogo</h2>
+        <div class="thumbnails">
+            <div id="thumbnail1" class="thumbnail active" onclick="showCoffin(1)"
+                style="background-image: url('./img/thumbnails/ataud1.jpg');background-position: center; background-size: cover;">
+            </div>
+            <div id="thumbnail2" class="thumbnail" onclick="showCoffin(2)"
+                style="background-image: url('./img/thumbnails/ataud2.jpg');background-position: center; background-size: cover;">
+            </div>
+            <div id="thumbnail3" class="thumbnail" onclick="showCoffin(3)"
+                style="background-image: url('./img/thumbnails/ataud3.jpg');background-position: center; background-size: cover;">
+            </div>
+        </div>
+
+        <div id="house" class="fade-in">
+            <div id="coffin1" class="coffin active ">
+                <div class="coffin-container">
+                    <model-viewer id="envlight-demo" camera-controls touch-action="pan-y" disable-pan
+                        oncontextmenu="return false;" src="./3d/ataud1/scene.glb"
+                        skybox-image="./img/hdrs/fondocoffin3d.hdr" alt="A 3D model of a damaged helmet"
+                        camera-orbit="45deg 55deg 1500m" exposure="3">
+                    </model-viewer>
+                    <div class="coffin-content">
+                        <h1 class="------">Ataud Classic Haymaker</h1>
+                        <p>El Ataúd Classic Haymaker es un símbolo de elegancia y sobriedad en el mundo del último
+                            adiós. Con líneas clásicas y acabados impecables, este ataúd ofrece una digna despedida para
+                            aquellos que buscan un último descanso con estilo. Su madera cuidadosamente seleccionada y
+                            su diseño artesanal reflejan un sentido de calidad y respeto. El interior está revestido con
+                            telas suaves y reconfortantes, proporcionando un ambiente sereno y tranquilo para el ser
+                            querido que yace en su interior.</p>
+                        <div class="text-container ">
+                            <p>- Francisco Parra Navarro</p>
+                            <a href="#" class="btn">Ver precios</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="coffin2" class="coffin">
+                <div class="coffin-container">
+                    <model-viewer id="envlight-demo" camera-controls touch-action="pan-y" disable-pan
+                        oncontextmenu="return false;" src="./3d/ataud2/scene.glb"
+                        skybox-image="./img/hdrs/fondocoffin3d.hdr" alt="A 3D model of a damaged helmet"
+                        camera-orbit="45deg 55deg 1500m" exposure="3">
+                    </model-viewer>
+                    <div class="coffin-content">
+                        <h1 class="------">Ataud Italian Beco</h1>
+                        <p>
+                            El Ataúd Italian Beco es una obra maestra de la artesanía funeraria que encarna la esencia
+                            del estilo italiano y la elegancia atemporal. Con líneas suaves y refinadas, este ataúd
+                            evoca una sensación de serenidad y paz. Fabricado con los más altos estándares de calidad,
+                            cada detalle del Ataúd Italian Beco refleja una atención meticulosa al diseño y la
+                            manufactura. Su madera de alta calidad, seleccionada con cuidado, se combina con acabados
+                            impecables para crear una pieza que es tanto hermosa como duradera. El interior está
+                            revestido con telas suaves y lujosas, proporcionando un ambiente reconfortante para el
+                            descanso eterno del ser querido.</p>
+                        <div class="text-container ">
+                            <p>- Francisco Parra Navarro</p>
+                            <a href="#" class="btn">Ver precios</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="coffin3" class="coffin">
+                <div class="coffin-container">
+                    <model-viewer id="envlight-demo" camera-controls touch-action="pan-y" disable-pan
+                        oncontextmenu="return false;" src="./3d/ataud3/scene.glb"
+                        skybox-image="./img/hdrs/fondocoffin3d.hdr" alt="A 3D model of a damaged helmet"
+                        camera-orbit="45deg 55deg 1500m" exposure="3">
+                    </model-viewer>
+                    <div class="coffin-content">
+                        <h1 class="------">Ataud Brown Smallest</h1>
+                        <p>
+                            El Ataúd Brown Smallest combina simplicidad y elegancia en un diseño compacto y refinado.
+                            Con su tono marrón cálido y acabados sutiles, este ataúd ofrece un tributo discreto pero
+                            respetuoso para aquellos que buscan un último descanso sencillo. Fabricado con materiales de
+                            calidad y atención al detalle, cada aspecto del Ataúd Brown Smallest está cuidadosamente
+                            elaborado para proporcionar un ambiente tranquilo y reconfortante. Su tamaño más pequeño lo
+                            hace ideal para espacios limitados sin comprometer la calidad o la dignidad.</p>
+                        <div class="text-container ">
+                            <p>- Francisco Parra Navarro</p>
+                            <a href="#" class="btn">Ver precios</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="coffin-list"></div>
+
+        <h2>Listado de Reseñas</h2>
+        <div class="row2">
+            <div id="col"></div>
+        </div>
+        <h1>Envia tu propia reseña</h1>
+        <form id="formulario-reseña">
+            <label for="nombre">Nombre:</label><br>
+            <input type="text" id="nombre" name="nombre" required><br><br>
+
+            <label for="estrellas">Estrellas:</label><br>
+            <input type="number" id="estrellas" name="estrellas" min="1" max="5" required><br><br>
+
+            <label for="review">Reseña:</label><br>
+            <textarea id="review" name="review" rows="4" cols="50" required></textarea><br>
+
+            <button type="submit">Enviar Reseña</button>
+        </form>
+
+
+
+        <section id="about" class="personal fade-ind">
+            <h2>Nuestras estadísticas</h2>
+            <div class="personal-cnt">
+                <div class="cnt-caja">
+                    <img src="./img/personal/priest.png" alt="">
+                    <h3>+250 exorcistas</h3>
+                </div>
+                <div class="cnt-caja">
+                    <img src="./img/personal/coffin.png" alt="">
+                    <h3>+1000 ataudes</h3>
+                </div>
+                <div class="cnt-caja">
+                    <img src="./img/personal/zombie.png" alt="">
+                    <h3>-900 zombies</h3>
+                </div>
+                <div class="cnt-caja">
+                    <img src="./img/personal/client.png" alt="">
+                    <h3>+450 clientes</h3>
+                </div>
+            </div>
+        </section>
+        <section class="mapa fade-in">
+            <h2>Haznos una visita!!</h2>
+            <p>API Cementerio se encuentra en Antas Almería, tierra de gente humilde y trabajadora, como nuestra
+                empresa!!!</p>
+            <p>El cementerio cuenta con una agradable vegetación y lápidas de mármol negro cincelado de altisima calidad
+                que representa la armonía y la paz con la que descansan los seres queridos de nuestros clientes</p>
+            <br>
+            <div class="cemen-antas">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d3175.9437410544497!2d-1.9231795843043524!3d37.24904225803988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0xd7ad3703adaf697%3A0xe3aabc2c136b9a17!2scementerio%20antas!3m2!1d37.248864499999996!2d-1.921404!5e0!3m2!1ses!2ses!4v1713525183700!5m2!1ses!2ses"
+                    width="45%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                <img src="./img/cementerio-antas.jpg" alt="">
+
+            </div>
+        </section>
+        <section class="yt">
+            <iframe width="750" height="500" src="https://www.youtube.com/embed/VFCXKUhOqrI?si=EtIQ85yT_APt_EQf"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </section>
+        <section class="pricing-section fade-in">
+            <div class="container">
+                <div class="sec-title text-center">
+                    <span class="title">Obtener una tarifa</span>
+                    <h2>Elige tu tarifa</h2>
+                </div>
+
+                <div class="outer-box">
+                    <div class="row">
+                        <div class="pricing-block col-lg-4 col-md-6 col-sm-12 wow fadeInUp">
+                            <div class="inner-box">
+                                <div class="icon-box">
+                                    <div class="icon-outer"><i class="fas fa-paper-plane"></i></div>
+                                </div>
+                                <div class="price-box">
+                                    <div class="title"> Servicios Básicos</div>
+                                    <h4 class="price">35.99€</h4>
+                                </div>
+                                <ul class="features">
+                                    <li class="true">Entierro del familiar</li>
+                                    <li class="true">Cura gratis </li>
+                                    <li class="true">Adornos básicos</li>
+                                    <li class="false">Ataúd o Panteón</li>
+                                    <li class="false">Ritual de purificación</li>
+                                </ul>
+                                <div class="btn-box">
+                                    <a class="theme-btn">Contratar plan</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pricing-block col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="400ms">
+                            <div class="inner-box">
+                                <div class="icon-box">
+                                    <div class="icon-outer"><i class="fas fa-gem"></i></div>
+                                </div>
+                                <div class="price-box">
+                                    <div class="title">Servicios Avanzados</div>
+                                    <h4 class="price">99.99€</h4>
+                                </div>
+                                <ul class="features">
+                                    <li class="true">Entierro del familiar</li>
+                                    <li class="true">Cura gratis </li>
+                                    <li class="true">Adornos básicos</li>
+                                    <li class="true">Ataúd o Panteón</li>
+                                    <li class="false">Ritual de purificación</li>
+                                </ul>
+                                <div class="btn-box">
+                                    <a class="theme-btn">Contratar plan</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pricing-block col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="800ms">
+                            <div class="inner-box">
+                                <div class="icon-box">
+                                    <div class="icon-outer"><i class="fas fa-rocket"></i></div>
+                                </div>
+                                <div class="price-box">
+                                    <div class="title">Servicios Premium ✨</div>
+                                    <h4 class="price">199.99€</h4>
+                                </div>
+                                <ul class="features">
+                                    <li class="true">Entierro del familiar</li>
+                                    <li class="true">Cura gratis </li>
+                                    <li class="true">Adornos básicos</li>
+                                    <li class="true">Ataúd o Panteón</li>
+                                    <li class="true">Ritual de purificación</li>
+                                </ul>
+                                <div class="btn-box">
+                                    <a class="theme-btn">Contratar plan</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    <!-- <div id="pokemon-container"></div> -->
+    <div id="instructions"></div>
+
+    <div class="pg-footer" id="contact">
+        <footer class="footer" id="footer">
+            <svg class="footer-wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 100"
+                preserveAspectRatio="none">
+                <path class="footer-wave-path"
+                    d="M851.8,100c125,0,288.3-45,348.2-64V0H0v44c3.7-1,7.3-1.9,11-2.9C80.7,22,151.7,10.8,223.5,6.3C276.7,2.9,330,4,383,9.8 c52.2,5.7,103.3,16.2,153.4,32.8C623.9,71.3,726.8,100,851.8,100z">
+                </path>
+            </svg>
+            <div class="footer-content">
+                <div class="footer-content-column">
+                    <div class="footer-logo">
+                        <a class="footer-logo-link" href="#">
+                            <span class="hidden-link-text">API Cementerio</span>
+                            <h1>API Cementerio</h1>
+                        </a>
+                    </div>
+                    <div class="footer-menu">
+                        <h2 class="footer-menu-name"> Empezar</h2>
+                        <ul id="menu-get-started" class="footer-menu-list">
+                            <li class="menu-item menu-item-type-post_type menu-item-object-product">
+                                <a href="#">Comenzar</a>
+                            </li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-product">
+                                <a href="#">Documentación</a>
+                            </li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-product">
+                                <a href="#">Asesoramiento</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-content-column">
+                    <div class="footer-menu">
+                        <h2 class="footer-menu-name"> Compañía</h2>
+                        <ul id="menu-company" class="footer-menu-list">
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                <a href="#">Contacto</a>
+                            </li>
+                            <li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+                                <a href="#">Noticias</a>
+                            </li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                <a href="#">Carreras</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-menu">
+                        <h2 class="footer-menu-name"> Legal</h2>
+                        <ul id="menu-legal" class="footer-menu-list">
+                            <li
+                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-170434">
+                                <a href="#">Aviso de privacidad</a>
+                            </li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                <a href="#">Términos de uso</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-content-column">
+                    <div class="footer-menu">
+                        <h2 class="footer-menu-name"> Enlaces Rápidos</h2>
+                        <ul id="menu-quick-links" class="footer-menu-list">
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                <a target="_blank" rel="noopener noreferrer" href="#">Centro de soporte</a>
+                            </li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                <a target="_blank" rel="noopener noreferrer" href="#">Estado del servicio</a>
+                            </li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                <a href="#">Seguridad</a>
+                            </li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                <a href="#">Blog</a>
+                            </li>
+                            <li class="menu-item menu-item-type-post_type_archive menu-item-object-customer">
+                                <a href="#">Clientes</a>
+                            </li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                <a href="#">Reseñas</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-content-column">
+                    <div class="footer-call-to-action">
+                        <h2 class="footer-call-to-action-title">Hablemos</h2>
+                        <p class="footer-call-to-action-description">¿Tienes alguna pregunta de soporte?</p>
+                        <a class="footer-call-to-action-button button" href="#" target="_self">Ponte en contacto</a>
+                    </div>
+                    <div class="footer-call-to-action">
+                        <h2 class="footer-call-to-action-title">Llamanos</h2>
+                        <p class="footer-call-to-action-link-wrapper"> <a class="footer-call-to-action-link"
+                                href="tel:651022327" target="_self">651 02 23 27</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="footer-copyright-wrapper">
+                    <p class="footer-copyright-text">
+                        <a class="footer-copyright-link" href="#" target="_self"> ©2024. | Diseñado por: Francisco Parra
+                            Navarro | Todos los derechos reservados. </a>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+    <script src="./js/three.r134.min.js"></script>
+    <script src="./js/vanta.fog.min.js"></script>
+    <script>
+        VANTA.FOG({
+            el: "#footer",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            highlightColor: 0x122d55,
+            midtoneColor: 0x122052,
+            lowlightColor: 0x172852,
+            baseColor: 0x9795c5,
+            speed: 1.90,
+            zoom: 1.20
+        })
+    </script>
+
+    <script src="./js/script.js">
+    </script>
+    <script src="./js/three.r134.min.js"></script>
+    <script src="./js/vanta.birds.min.js"></script>
+    <script>
+        VANTA.BIRDS({
+            el: "#parallax",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color1: 0xc0c0c0,
+            color2: 0xffffff,
+            birdSize: 1.80,
+            wingSpan: 40.00,
+            speedLimit: 3.00,
+            separation: 100.00,
+            alignment: 50.00,
+            cohesion: 100.00,
+            quantity: 2.80,
+            backgroundAlpha: 0.00
+        })
+    </script>
+</body>
+
+</html>

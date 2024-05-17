@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/login.css">
+  <title>Login</title>
+  <script src="./js/script.js"></script>
+  <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.freepik.com/512/2983/2983665.png">
+</head>
+
+<body id="login">
+  <div class="container">
+    <div class="well">
+      <form action="#" method="post" id="login-form">
+        <hggroup>
+          <h1>Bienvenido de vuelta</h1>
+          <h2>Inicia sesión con tu cuenta</h2>
+        </hggroup>
+        <div>
+          <span>Username:</span>
+          <input type="email" id="username" name="username" required><br>
+          <label for="username"></label>
+        </div>
+
+        <div>
+          <span>Password:</span>
+          <input type="password" id="password" name="password" required><br>
+          <label for="password"></label>
+        </div>
+        <a href="./register.html">No tienes cuenta? Create una.</a>
+
+        <button class=button id="btn-submit">
+          <span class="button-text" type="submit">Iniciar sesión</span>
+          <div class="button-loader">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+
+        </button>
+      </form>
+    </div>
+
+    <img src="https://cdn.pixabay.com/photo/2023/03/27/19/54/roses-7881586_1280.png">
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const loginForm = document.getElementById('login-form');
+
+      loginForm.addEventListener('submit', event => {
+        event.preventDefault();
+
+        const username = loginForm.username.value;
+        const password = loginForm.password.value;
+
+        // Hash de la contraseña
+        crypto.subtle.digest('SHA-256', new TextEncoder().encode(password))
+          .then(hashBuffer => {
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
+            const hashedPassword = hashHex;
+
+            // Hacer una solicitud para verificar las credenciales del usuario
+            fetch('http://localhost:3001/login')
+              .then(response => response.json())
+              .then(data => {
+                // Verificar si las credenciales son correctas
+                const user = data.find(user => user.username === username && user.password === hashedPassword);
+                if (user) {
+                  // Credenciales correctas, almacenar el nombre de usuario en el localStorage
+                  localStorage.setItem('username', username);
+                  localStorage.setItem('token', 'token_de_sesion_generado');
+
+                  window.location.href = 'backend.html';
+                } else {
+                  // Credenciales incorrectas, mostrar un mensaje de error
+                  alert('Credenciales incorrectas. Por favor, inténtelo de nuevo.');
+                }
+              })
+              .catch(error => {
+                console.error('Error al verificar las credenciales:', error);
+                alert('Ha ocurrido un error al intentar iniciar sesión. Por favor, inténtelo de nuevo más tarde.');
+              });
+          })
+          .catch(error => console.error('Error al cifrar la contraseña:', error));
+      });
+    });
+
+  </script>
+</body>
+
+</html>

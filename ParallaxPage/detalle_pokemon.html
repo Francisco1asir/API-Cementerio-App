@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Pokémon</title>
+    <style>
+        /* Estilos CSS opcionales */
+    </style>
+</head>
+<body>
+    <div id="detalle-pokemon">
+        <h1>Detalles del Pokémon</h1>
+        <div id="nombre"></div>
+        <div id="tipo"></div>
+        <div id="imagen"></div>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const pokemonName = urlParams.get('name');
+        
+        document.getElementById('nombre').textContent = "Nombre: " + pokemonName;
+
+        const typeElement = document.createElement("div");
+        typeElement.id = "tipo";
+        
+        document.getElementById("detalle-pokemon").appendChild(typeElement);
+
+        const imageElement = document.createElement("img");
+
+        fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName.toLowerCase()}`)
+            .then(response => response.json())
+            .then(pokemonData => {
+                const imageUrl = pokemonData.sprites.other['official-artwork'].front_default;
+
+                const types = pokemonData.types.map(type => type.type.name).join(", ");
+                
+                document.getElementById('tipo').textContent = "Tipo: " + types;
+
+                imageElement.src = imageUrl;
+                imageElement.alt = pokemonName;
+
+                document.getElementById('imagen').appendChild(imageElement);
+            })
+            .catch(error => {
+                console.error("Hubo un error al obtener los datos del Pokémon:", error);
+            });
+    </script>
+</body>
+</html>

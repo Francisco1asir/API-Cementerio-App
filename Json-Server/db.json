@@ -1,0 +1,164 @@
+{
+  "ataudes": [
+    {
+      "nombre": "Ataúd Lilia Penta",
+      "categoria": "Haymaker",
+      "precio": "5.000",
+      "material": "Madera de pino",
+      "imagen": "./img/img-cards/cf1.png",
+      "id": "02a3"
+    },
+    {
+      "id": "665a",
+      "nombre": "Ataúd Takeo Dempsey",
+      "categoria": "Haymaker",
+      "precio": "50003",
+      "material": "Madera de pino",
+      "imagen": "./img/img-cards/cf2.png"
+    },
+    {
+      "id": "aa14",
+      "nombre": "Ataúd Lilia Penta",
+      "categoria": "Haymaker",
+      "precio": "50003",
+      "material": "Loto",
+      "imagen": "./img/img-cards/cf3.png"
+    },
+    {
+      "id": "8fc2",
+      "nombre": "Ataud Varus Row",
+      "categoria": "Beco",
+      "precio": "3200",
+      "material": "Madera fúngica roja",
+      "imagen": "https://static.wixstatic.com/media/46abe6_0344a05baca5420ea5e897e8744b4c01~mv2.png/v1/fill/w_480,h_242,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/46abe6_0344a05baca5420ea5e897e8744b4c01~mv2.png"
+    },
+    {
+      "id": "c060",
+      "nombre": "Ataud Tibbers Annie",
+      "categoria": "Brown smallest",
+      "precio": "4500",
+      "material": "Abeto Marrón",
+      "imagen": "https://symbl.cc/i/webp/fa/163397a9de812c0feae58b902cd6ef.webp"
+    },
+    {
+      "id": "68e1",
+      "nombre": "Ataud Lulu M8",
+      "categoria": "Haymaker",
+      "precio": "2450",
+      "material": "Plastico refinado",
+      "imagen": "https://static.vecteezy.com/system/resources/previews/011/026/907/original/3d-coffin-icon-halloween-illustration-png.png"
+    },
+    {
+      "id": "e8b5",
+      "nombre": "Ataud Sova Heimer",
+      "categoria": "Beco",
+      "precio": "7200",
+      "material": "Caucho Recicable",
+      "imagen": "https://industriascoins.com/wp-content/uploads/2023/05/20230508_132530.png"
+    },
+    {
+      "id": "5d3a",
+      "nombre": "Caja de madera reventa viva",
+      "categoria": "Brown smallest",
+      "precio": "5",
+      "material": "Madera del campo",
+      "imagen": "https://www3.gobiernodecanarias.org/medusa/mediateca/ecoescuela/wp-content/uploads/sites/2/2013/11/03-Ataud-de-madera.png"
+    },
+    {
+      "id": "5d55",
+      "nombre": "Ataud de Oro Puro",
+      "categoria": "Beco",
+      "precio": "1000000",
+      "material": "Oro Puro Somalí",
+      "imagen": "https://pngimg.com/d/coffin_PNG54.png"
+    },
+    {
+      "id": "fb4b",
+      "nombre": "Ataud de esparto",
+      "categoria": "Brown smallest",
+      "precio": "55",
+      "material": "Esparto Seco",
+      "imagen": "https://www.comparethecoffin.com/wp-content/uploads/2020/11/bamboo-lattice-round-coffin392-min-min.png"
+    }
+  ],
+  "login": [
+    {
+      "id": "8b64",
+      "username": "franpichalarga@gmail.com",
+      "password": "ae896226f89c0bac1a57a4e8c0895399d241fb895af07682d86714b336d1b6af"
+    },
+    {
+      "id": "02d9",
+      "username": "fran@gmail.com",
+      "password": "67516362c45a2d23c82580cb24adbe6943481d682b516de0f9b25eb066a131cc"
+    },
+    {
+      "id": "33fe",
+      "username": "marcos@gmail.com",
+      "password": "7576e039bfc835713eb674f14efc6165fb4412db1bf4aa98806af7bb8a0aaeaa"
+    },
+    {
+      "id": "f973",
+      "username": "takeo@gmail.com",
+      "password": "7576e039bfc835713eb674f14efc6165fb4412db1bf4aa98806af7bb8a0aaeaa"
+    }
+  ],
+  "reviews": [
+    {
+      "nombre": "Fran Parra",
+      "estrellas": 4,
+      "review": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem quisquam sapiente obcaecati odio hic quos eum, aperiam cum architecto animi laudantium et maiores dolorem veritatis, nihil rerum eos libero? Iusto!",
+      "foto": "https://www.redcenit.com/redcenit/wp-content/uploads/2023/09/Persona-Altamente-Sensible-PAS.jpg",
+      "id": "3737"
+    },
+    {
+      "nombre": "Juan Gomez ",
+      "estrellas": 2,
+      "review": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem quisquam sapiente obcaecati odio hic quos eum, aperiam cum architecto animi laudantium et maiores dolorem veritatis, nihil rerum eos libero? Iusto!",
+      "foto": "https://i.pinimg.com/originals/76/0c/c5/760cc57101a7b8128240b4e24ec52995.jpg",
+      "id": "26d9"
+    },
+    {
+      "nombre": "Marta Lopez",
+      "estrellas": 4,
+      "review": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem quisquam sapiente obcaecati odio hic quos eum, aperiam cum architecto animi laudantium et maiores dolorem veritatis, nihil rerum eos libero? Iusto!",
+      "id": "4828"
+    },
+    {
+      "id": "4cf7",
+      "nombre": "Neeko Supp",
+      "estrellas": 5,
+      "review": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem quisquam sapiente obcaecati odio hic quos eum, aperiam cum architecto animi laudantium et maiores dolorem veritatis, nihil rerum eos libero? Iusto!€"
+    },
+    {
+      "id": "f1cb",
+      "nombre": "Juan Francisco",
+      "estrellas": 4,
+      "review": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem quisquam sapiente obcaecati odio hic quos eum, aperiam cum architecto animi laudantium et maiores dolorem veritatis, nihil rerum eos libero? Iusto!€€"
+    },
+    {
+      "id": "46ca",
+      "nombre": "Francisco Parra",
+      "estrellas": 3,
+      "review": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem quisquam sapienteLorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem quisquam sapiente"
+    },
+    {
+      "id": "4a64",
+      "nombre": "Juan Pamela",
+      "estrellas": 3,
+      "review": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem quisquam sapiente"
+    },
+    {
+      "id": "0f9f",
+      "nombre": "Manuel Perez",
+      "estrellas": 4,
+      "review": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem quisquam sapiente obcaecati odio hic quos eum,Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem quisquam sapiente obcaecati odio hic quos eum,"
+    },
+    {
+      "id": "9f36",
+      "nombre": "Prueba",
+      "estrellas": 2,
+      "review": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem quisquam sapiente obcaecati odio hic quos eum,Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem quisquam sapiente obcaecati odio hic quos eum,\n\nLorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem quisquam sapiente obcaecati odio hic quos eum,Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem quisquam sapiente obcaecati odio hic quos eum,\n\n"
+    }
+  ]
+}

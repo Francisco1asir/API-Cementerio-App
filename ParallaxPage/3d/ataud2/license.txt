@@ -1,0 +1,11 @@
+Model Information:
+* title:	Italian Coffin
+* source:	https://sketchfab.com/3d-models/italian-coffin-6c533fb58e554e93a3f0b586bc50b795
+* author:	ANUBIS 5883 (https://sketchfab.com/alexcampos265)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Italian Coffin" (https://sketchfab.com/3d-models/italian-coffin-6c533fb58e554e93a3f0b586bc50b795) by ANUBIS 5883 (https://sketchfab.com/alexcampos265) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

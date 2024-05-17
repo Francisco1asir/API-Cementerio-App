@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./css/detail.css">
+  <link rel="stylesheet" href="./css/querys.css">
+  <script src="./js/script.js"></script>
+  <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.freepik.com/512/2983/2983665.png">
+  <title>API Cementerio</title>
+</head>
+
+<body id="detail">
+  
+  <br>
+  <div id="detalle-ataud"></div>
+  <h2>Ataúdes relacionados</h2>
+  <div class="coffin-list" id="related-coffins"></div>
+  <!-- Agregamos la clase coffin-list al contenedor de ataúdes relacionados -->
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const detalleAtaudContainer = document.getElementById('detalle-ataud');
+      const relatedCoffinsContainer = document.getElementById('related-coffins');
+
+      // Obtener el ID del ataúd de la URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const ataudId = urlParams.get('id');
+
+      // Hacer una solicitud para obtener los detalles del ataúd
+      fetch(`http://localhost:3001/ataudes?id=${ataudId}`)
+        .then(response => response.json())
+        .then(data => {
+          // Mostrar los detalles del ataúd
+          const { id, nombre, categoria, precio, material, imagen } = data[0]; // Asegúrate de incluir "id" aquí
+          const detalleHTML = `
+          <div class="detailcnt">
+            <h2>${nombre}</h2>
+            <div class="detailcnt2">
+              <figure>
+                <img src="${imagen}" alt="${nombre}">
+              </figure>
+              <div class="detailtxt">
+                <p>Categoría: ${categoria}</p>
+                <p>Precio: ${precio}€</p>
+                <p class="material">Material: ${material}</p>
+                <a class="btn" >Comprar</a> 
+              </div>
+            </div>
+          </div>
+        `;
+          detalleAtaudContainer.innerHTML = detalleHTML;
+
+          // Buscar ataúdes relacionados con la misma categoría
+          fetch(`http://localhost:3001/ataudes?categoria=${categoria}&id_ne=${ataudId}&_limit=3`)
+            .then(response => response.json())
+            .then(relatedCoffins => {
+              // Mostrar las tarjetas de los ataúdes relacionados
+              relatedCoffins.forEach(coffin => {
+                const cardHTML = `
+                <div class="ataud">
+                  <img src="${coffin.imagen}" alt="${coffin.nombre}">
+                  <h3>${coffin.nombre}</h3>
+                  <p>Precio: ${coffin.precio}€</p>
+                  <p >Material: ${coffin.material}</p>
+                  <a class="btn" href="detalle_ataud.html?id=${coffin.id}">Ver detalles</a>
+                </div>
+              `;
+                relatedCoffinsContainer.innerHTML += cardHTML;
+              });
+            })
+            .catch(error => {
+              console.error('Error al obtener ataúdes relacionados:', error);
+            });
+        })
+        .catch(error => {
+          console.error('Error al obtener los detalles del ataúd:', error);
+        });
+    });
+
+  </script>
+</body>
+
+</html>
