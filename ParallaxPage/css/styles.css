@@ -1232,6 +1232,7 @@ a {
 #menu {
   position: absolute;
   width: 300px;
+  display: none;
   margin: -90px 0 0 -190px;
   padding: 50px;
   padding-top: 125px;
