@@ -1324,10 +1324,7 @@ form#formulario-reseña textarea {
   border-radius: 10px;
   padding-left: 10px;
 }
-form#formulario-reseña textarea {
-  background-color: red;
-  width: 50%;
-}
+
 form#formulario-reseña button{
   padding: 5px;
   border-radius: 10px;
