@@ -176,7 +176,7 @@ header {
   position: relative;
   background: #020912;
   padding: 30px 100px;
-  z-index: 9999999;
+  z-index: 1;
 }
 
 .sec h2 {
@@ -1257,6 +1257,7 @@ a {
 }
 ul#menu {
   margin-top: 20px;
+  z-index: 99999999 !important;
   transition: .6s ease-in-out;
 }
 
