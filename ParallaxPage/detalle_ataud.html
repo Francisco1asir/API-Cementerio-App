@@ -30,7 +30,7 @@
       const ataudId = urlParams.get('id');
 
       // Hacer una solicitud para obtener los detalles del ataúd
-      fetch(`http://localhost:3001/ataudes?id=${ataudId}`)
+      fetch(`https://api-cementerio.vercel.app/ataudes?id=${ataudId}`)
         .then(response => response.json())
         .then(data => {
           // Mostrar los detalles del ataúd
@@ -54,7 +54,7 @@
           detalleAtaudContainer.innerHTML = detalleHTML;
 
           // Buscar ataúdes relacionados con la misma categoría
-          fetch(`http://localhost:3001/ataudes?categoria=${categoria}&id_ne=${ataudId}&_limit=3`)
+          fetch(`https://api-cementerio.vercel.app/ataudes?categoria=${categoria}&id_ne=${ataudId}&_limit=3`)
             .then(response => response.json())
             .then(relatedCoffins => {
               // Mostrar las tarjetas de los ataúdes relacionados

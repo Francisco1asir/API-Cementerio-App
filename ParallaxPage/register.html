@@ -62,7 +62,7 @@
             const hashedPassword = hashHex;
 
             // Hacer una solicitud para verificar si el nombre de usuario ya existe
-            fetch('http://localhost:3001/login')
+            fetch('https://api-cementerio.vercel.app/login')
               .then(response => response.json())
               .then(data => {
                 const usernames = data.map(user => user.username);
@@ -75,7 +75,7 @@
                     password: hashedPassword
                   };
 
-                  fetch('http://localhost:3001/login', {
+                  fetch('https://api-cementerio.vercel.app/login', {
                       method: 'POST',
                       headers: {
                         'Content-Type': 'application/json'
