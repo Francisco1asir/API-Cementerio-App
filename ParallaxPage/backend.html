@@ -7,9 +7,11 @@
   <link rel="stylesheet" href="./css/styles.css">
   <link rel="stylesheet" href="./css/querys.css">
   <link rel="stylesheet" href="./css/backend.css">
+  <script src="./js/vuelve.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <script src="./js/script.js"></script>
-  <title>Document</title>
+  <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.freepik.com/512/2983/2983665.png">
+  <title>API Cementerio</title>
 </head>
 
 <body id="back">
@@ -19,9 +21,9 @@
       <a href="./index.html">Home<span></span></a>
       <a href="./index.html#about">About<span></span></a>
       <a href="./index.html#service">Service<span></span></a>
-      <a href="./index.html#contact">Contact<span></span></a>
-      <span id="login-status"></span> <!-- Aquí mostraremos el nombre de usuario o el enlace de inicio de sesión -->
-      <button id="logout-button" style="display: none;"><i class="fa-solid fa-right-from-bracket"></i></button> <!-- Botón de cerrar sesión -->
+      <a href="./index.html#prod">Productos<span></span></a>
+      <span id="login-status"></span>
+      <button id="logout-button" style="display: none;"><i class="fa-solid fa-right-from-bracket"></i></button>
     </nav>
 
     <script>
@@ -32,18 +34,19 @@
         // Verificar si hay un nombre de usuario almacenado en localStorage
         const username = localStorage.getItem('username');
         if (username) {
-          loginStatus.textContent = ` ${username}`; // Mostrar el nombre de usuario
-          logoutButton.style.display = 'inline'; // Mostrar el botón de cerrar sesión
+          loginStatus.textContent = ` ${username}`; // Mostrar el nombre de usuario en el nav
+          logoutButton.style.display = 'inline'; // botón de cerrar sesión
         } else {
-          loginStatus.innerHTML = '<a href="./login.html">Login<span></span></a>'; // Si no hay usuario logeado, mostrar el enlace de login
+          loginStatus.innerHTML = '<a href="./login.html">Login<span></span></a>'; 
+          // Si no hay usuario logeado, mostrar el enlace pal login
         }
 
         logoutButton.addEventListener('click', () => {
-          // Eliminar los datos del usuario del localStorage al hacer clic en "Cerrar sesión"
+          // Eliminar los datos del usuario del localStorage al hacer clic en cerrar sesion
           localStorage.removeItem('username');
           localStorage.removeItem('token');
 
-          // Redirigir al usuario a la página de inicio de sesión después de cerrar sesión
+          // Redirigir al usuario a la página del login despue de cerrar sesión
           window.location.href = './login.html';
         });
       });
@@ -65,8 +68,8 @@
           <a href="./index.html#about">
             <li>About</li>
           </a>
-          <a href="./index.html#contact">
-            <li>Contact</li>
+          <a href="./index.html#prod">
+            <li>Productos</li>
           </a>
         </ul>
       </div>
@@ -74,15 +77,22 @@
   </header>
   <section>
     <form id="formulario-ataud">
+    <label for="buscador">Buscar:</label>
+    <input type="text" id="buscador" name="buscador">
       <label for="nombre">Nombre:</label>
       <input type="text" id="nombre" name="nombre" required><br>
-      
+
       <label for="categoria">Categoría:</label>
-      <input type="text" id="categoria" name="categoria" required><br>
+      <select id="categoria" name="categoria" required>
+        <option value="Haymaker">Haymaker</option>
+        <option value="Beco">Beco</option>
+        <option value="Brown smallest">Brown Smallest</option>
+      </select><br>
       
+
       <label for="precio">Precio:</label>
       <input type="number" id="precio" name="precio" required><br>
-      
+
       <label for="material">Material:</label>
       <input type="text" id="material" name="material" required><br>
 
@@ -97,10 +107,10 @@
             <th>ID</th>
             <th>NOMBRE</th>
             <th>CATEGORIA</th>
-            <th>PRECIO (€)</th>
+            <th>PRECIO</th>
             <th>MATERIAL</th>
             <th>IMAGEN</th>
-            <th>Actions</th> <!-- Agregamos la columna de acciones -->
+            <th>Actions</th> 
           </tr>
         </thead>
       </table>
@@ -108,81 +118,115 @@
     <div class="tbl-content">
       <table cellpadding="0" cellspacing="0" border="0">
         <tbody>
-          <!-- Los datos se agregarán aquí dinámicamente -->
+          <!-- Los datos del js se veran aqui -->
         </tbody>
       </table>
     </div>
   </section>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const loginStatus = document.getElementById('login-status');
-      const logoutButton = document.getElementById('logout-button');
-    
-      // Verificar si hay un nombre de usuario almacenado en localStorage
-      const username = localStorage.getItem('username');
-      if (username) {
-        loginStatus.textContent = ` ${username}`; // Mostrar el nombre de usuario
-        logoutButton.style.display = 'inline'; // Mostrar el botón de cerrar sesión
+      const token = localStorage.getItem('token');
+      if (!token) {
+        // Si no hay un token de sesión en el localStorage, redirigir al usuario al login
+        window.location.href = 'login.html';
       } else {
-        loginStatus.innerHTML = '<a href="./login.html">Login<span></span></a>'; // Si no hay usuario logeado, mostrar el enlace de login
-        // Redirigir al usuario a la página de inicio de sesión si no está autenticado
-        window.location.href = './login.html';
-      }
-    
-      logoutButton.addEventListener('click', () => {
-        // Eliminar los datos del usuario del localStorage al hacer clic en "Cerrar sesión"
-        localStorage.removeItem('username');
-        localStorage.removeItem('token');
-    
-        // Redirigir al usuario a la página de inicio de sesión después de cerrar sesión
-        window.location.href = './login.html';
-      });
-    
-      // Realizar una solicitud HTTP GET para obtener los datos de la URL
-      fetch('https://api-cementerio.vercel.app/ataudes')
-        .then(response => response.json()) // Convertir la respuesta a formato JSON
-        .then(data => {
-          const tableBody = document.querySelector('.tbl-content tbody');
+        const loginStatus = document.getElementById('login-status');
+        const logoutButton = document.getElementById('logout-button');
+        const username = localStorage.getItem('username');
+        if (username) {
+          loginStatus.textContent = ` ${username}`; // Mostrar el nombre de usuario en el nav
+          logoutButton.style.display = 'inline'; // botón de cerrar sesión
+        } else {
+          loginStatus.innerHTML = '<a href="./login.html">Login<span></span></a>'; 
+          // Si no hay usuario logeado, mostrar el enlace pal login
+        }
 
-          // Iterar sobre los datos y agregar cada fila a la tabla
-          data.forEach(item => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-              <td>${item.id}</td>
-              <td>${item.nombre}</td>
-              <td>${item.categoria}</td>
-              <td>${item.precio}</td>
-              <td>${item.material}</td>
-              <td><img src="${item.imagen}" alt="${item.nombre}" width="100"></td>
-              <td><button class="delete-button" data-id="${item.id}"><i class="fa-solid fa-trash"></i></button></td> <!-- Agregamos el botón de borrar -->
-            `;
-            tableBody.appendChild(row);
-          });
+        logoutButton.addEventListener('click', () => {
+          // Eliminar los datos del usuario del localStorage al hacer clic en cerrar sesion
+          localStorage.removeItem('username');
+          localStorage.removeItem('token');
 
-          // Agregar event listener para los botones de borrar
-          document.querySelectorAll('.delete-button').forEach(button => {
-            button.addEventListener('click', () => {
-              const id = button.getAttribute('data-id');
-              const confirmDelete = confirm("¿Estás seguro de que deseas eliminar este ataúd?");
-              if (confirmDelete) {
-                fetch(`https://api-cementerio.vercel.app/ataudes/${id}`, {
-                  method: 'DELETE'
-                })
-                .then(() => {
-                  // Eliminar la fila de la tabla una vez que se ha eliminado el ataúd
-                  button.closest('tr').remove();
-                })
-                .catch(error => {
-                  console.error('Error al eliminar el ataúd:', error);
-                });
-              }
-            });
-          });
-        })
-        .catch(error => {
-          console.error('Error al cargar los datos:', error);
+          // Redirigir al usuario a la página del login despue de cerrar sesión
+          window.location.href = './login.html';
         });
-    });
+      }
+      //  funcion para poner los puntos a los numeros
+      function formatNumberWithPoints(number) {
+          return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+      }
+  
+      // Quitar las tildes para que el buscador funke bien
+      function removeAccents(text) {
+          return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+      }
+      const inputBuscador = document.getElementById('buscador');
+      inputBuscador.addEventListener('input', () => {
+          const textoBusqueda = removeAccents(inputBuscador.value.toLowerCase().trim());
+          const filas = document.querySelectorAll('.tbl-content tbody tr');
+  
+          filas.forEach(fila => {
+              const textoFila = removeAccents(fila.textContent.toLowerCase());
+              if (textoFila.includes(textoBusqueda)) {
+                  fila.style.display = '';
+              } else {
+                  fila.style.display = 'none';
+              }
+          });
+      });
+  
+      // listener para el botón de logout
+      const logoutButton = document.getElementById('logout-button');
+      logoutButton.addEventListener('click', () => {
+          localStorage.removeItem('username');
+          localStorage.removeItem('token');
+          window.location.href = './login.html';
+      });
+  
+      // Obtener datos de atadues
+      fetch('http://localhost:3001/ataudes')
+          .then(response => response.json())
+          .then(data => {
+              const tableBody = document.querySelector('.tbl-content tbody');
+  
+              data.forEach(item => {
+                  const row = document.createElement('tr');
+                  row.innerHTML = `
+                      <td>${formatNumberWithPoints(item.id)}</td>
+                      <td>${item.nombre}</td>
+                      <td>${item.categoria}</td>
+                      <td>${formatNumberWithPoints(item.precio)}€</td> <!-- Formatear precio -->
+                      <td>${item.material}</td>
+                      <td><img src="${item.imagen}" alt="${item.nombre}" width="100"></td>
+                      <td><button class="delete-button" data-id="${item.id}"><i class="fa-solid fa-trash"></i></button></td>
+                  `;
+                  tableBody.appendChild(row);
+              });
+  
+              // listener para los botones de borrar
+              document.querySelectorAll('.delete-button').forEach(button => {
+                  button.addEventListener('click', () => {
+                      const id = button.getAttribute('data-id');
+                      const confirmDelete = confirm("¿Estás seguro de que deseas eliminar este ataúd?");
+                      if (confirmDelete) {
+                          fetch(`http://localhost:3001/ataudes/${id}`, {
+                              method: 'DELETE'
+                          })
+                              .then(() => {
+                                  // Eliminar la fila de la tabla una vez que se ha eliminado el ataúd
+                                  button.closest('tr').remove();
+                              })
+                              .catch(error => {
+                                  console.error('Error al eliminar el ataúd:', error);
+                              });
+                      }
+                  });
+              });
+          })
+          .catch(error => {
+              console.error('Error al cargar los datos:', error);
+          });
+  });
+  
   </script>
 </body>
 
