@@ -296,13 +296,25 @@ formularioReseña.addEventListener('submit', event => {
 });
 
 
-const modelViewer = document.getElementById('envlight-demo');
-const loadingMessage = document.getElementById('loading-message');
+// const modelViewer = document.getElementById('envlight-demo');
+// const loadingMessage = document.getElementById('loading-message');
 
-modelViewer.addEventListener('load', () => {
-    loadingMessage.style.display = 'none';
-});
+// modelViewer.addEventListener('load', () => {
+//     loadingMessage.style.display = 'none';
+// });
 
-modelViewer.addEventListener('error', () => {
-    loadingMessage.textContent = 'Error al cargar el modelo';
+// modelViewer.addEventListener('error', () => {
+//     loadingMessage.textContent = 'Error al cargar el modelo';
+// });
+
+document.querySelectorAll('model-viewer').forEach((modelViewer, index) => {
+    const loadingMessage = document.getElementById(`loading-message${index + 1}`);
+
+    modelViewer.addEventListener('load', () => {
+        loadingMessage.style.display = 'none';
+    });
+
+    modelViewer.addEventListener('error', () => {
+        loadingMessage.textContent = 'Error al cargar el modelo';
+    });
 });
