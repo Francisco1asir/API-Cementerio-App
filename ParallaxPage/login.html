@@ -5,8 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/login.css">
-  <script src="./js/login.js"></script>
   <title>Login</title>
+  <script src="./js/script.js"></script>
+  <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.freepik.com/512/2983/2983665.png">
 </head>
 
 <body id="login">
@@ -54,27 +55,36 @@
         const username = loginForm.username.value;
         const password = loginForm.password.value;
 
-        // Hacer una solicitud para verificar las credenciales del usuario
-        fetch('https://api-cementerio.vercel.app/login')
-          .then(response => response.json())
-          .then(data => {
-            // Verificar si las credenciales son correctas
-            const user = data.find(user => user.username === username && user.password === password);
-            if (user) {
-              // Credenciales correctas, almacenar el nombre de usuario en el localStorage
-              localStorage.setItem('username', username);
-              localStorage.setItem('token', 'token_de_sesion_generado');
+        // Hash de la contraseña
+        crypto.subtle.digest('SHA-256', new TextEncoder().encode(password))
+          .then(hashBuffer => {
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
+            const hashedPassword = hashHex;
 
-              window.location.href = 'backend.html';
-            } else {
-              // Credenciales incorrectas, mostrar un mensaje de error
-              alert('Credenciales incorrectas. Por favor, inténtelo de nuevo.');
-            }
+            // Hacer una solicitud para verificar las credenciales del usuario
+            fetch('http://localhost:3001/login')
+              .then(response => response.json())
+              .then(data => {
+                // Verificar si las credenciales son correctas
+                const user = data.find(user => user.username === username && user.password === hashedPassword);
+                if (user) {
+                  // Credenciales correctas, almacenar el nombre de usuario en el localStorage
+                  localStorage.setItem('username', username);
+                  localStorage.setItem('token', 'token_de_sesion_generado');
+
+                  window.location.href = 'backend.html';
+                } else {
+                  // Credenciales incorrectas, mostrar un mensaje de error
+                  alert('Credenciales incorrectas. Por favor, inténtelo de nuevo.');
+                }
+              })
+              .catch(error => {
+                console.error('Error al verificar las credenciales:', error);
+                alert('Ha ocurrido un error al intentar iniciar sesión. Por favor, inténtelo de nuevo más tarde.');
+              });
           })
-          .catch(error => {
-            console.error('Error al verificar las credenciales:', error);
-            alert('Ha ocurrido un error al intentar iniciar sesión. Por favor, inténtelo de nuevo más tarde.');
-          });
+          .catch(error => console.error('Error al cifrar la contraseña:', error));
       });
     });
 

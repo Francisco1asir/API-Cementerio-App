@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Función para cargar y mostrar los ataúdes
     function cargarAtaudes() {
-        fetch('https://api-cementerio.vercel.app/ataudes')
+        fetch('http://localhost:3001/ataudes')
             .then(response => response.json())
             .then(data => {
                 // Limpiar el contenedor antes de agregar nuevos ataúdes
@@ -161,7 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // eliminar un ataúd
     function eliminarAtaud(idAtaud) {
-        fetch(`https://api-cementerio.vercel.app/ataudes/${idAtaud}`, {
+        fetch(`http://localhost:3001/ataudes/${idAtaud}`, {
             method: 'DELETE'
         })
             .then(response => response.json())
@@ -196,7 +196,7 @@ document.addEventListener("DOMContentLoaded", () => {
             imagen: formularioAtaud.imagen.value
         };
 
-        fetch('https://api-cementerio.vercel.app/ataudes', {
+        fetch('http://localhost:3001/ataudes', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -224,7 +224,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // cargar y mostrar los ataúdes
     function cargarAtaudes() {
-        fetch('https://api-cementerio.vercel.app/reviews')
+        fetch('http://localhost:3001/reviews')
             .then(response => response.json())
             .then(data => {
                 ataudesContainer.innerHTML = '';
@@ -277,7 +277,7 @@ formularioReseña.addEventListener('submit', event => {
         review: formularioReseña.review.value
     };
 
-    fetch('https://api-cementerio.vercel.app/reviews', {
+    fetch('http://localhost:3001/reviews', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

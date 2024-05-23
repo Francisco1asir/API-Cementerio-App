@@ -176,7 +176,7 @@ header {
   position: relative;
   background: #020912;
   padding: 30px 100px;
-  z-index: 1;
+  z-index: 9999999;
 }
 
 .sec h2 {
@@ -1213,7 +1213,7 @@ a {
 #menuToggle input:checked~span {
   opacity: 1;
   transform: rotate(45deg) translate(-2px, -1px);
-  /* background: #232323; */
+  background: #232323;
 }
 
 #menuToggle input:checked~span:nth-last-child(3) {
@@ -1232,16 +1232,15 @@ a {
 #menu {
   position: absolute;
   width: 300px;
-  opacity: 0;
-  /* margin: -90px 0 0 -190px; */
+  margin: -90px 0 0 -190px;
   padding: 50px;
-  /* padding-top: 125px; */
+  padding-top: 125px;
   border-radius: 20px;
   background: #ededed;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
-  /* transform-origin: 0% 0%; */
-  transform: translate(-90%, 0);
+  transform-origin: 0% 0%;
+  transform: translate(100%, 0);
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
 }
 
@@ -1251,14 +1250,7 @@ a {
 }
 
 #menuToggle input:checked~ul {
-  /* transform: none; */
-  opacity: 1;
-  /* transition: .5s; */
-}
-ul#menu {
-  margin-top: 20px;
-  z-index: 99999999 !important;
-  transition: .6s ease-in-out;
+  transform: none;
 }
 
 
