@@ -296,4 +296,13 @@ formularioReseña.addEventListener('submit', event => {
 });
 
 
+const modelViewer = document.getElementById('envlight-demo');
+const loadingMessage = document.getElementById('loading-message');
 
+modelViewer.addEventListener('load', () => {
+    loadingMessage.style.display = 'none';
+});
+
+modelViewer.addEventListener('error', () => {
+    loadingMessage.textContent = 'Error al cargar el modelo';
+});
