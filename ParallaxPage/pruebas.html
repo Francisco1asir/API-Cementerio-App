@@ -1,77 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Tabla Dinámica</title>
-    <link rel="stylesheet" href="./css/styles.css">
-    <style>
-        /* Estilos de la tabla */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            border: 1px solid #ddd;
-        }
-        th, td {
-            padding: 8px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
-    <h1>Tabla Dinámica</h1>
-    <table id="tabla">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Categoría</th>
-                <th>Precio</th>
-                <th>Material</th>
-                <th>Imagen</th>
-            </tr>
-        </thead>
-        <tbody id="tablaBody">
-            <!-- Aquí se insertarán las filas dinámicamente -->
-        </tbody>
-    </table>
+    <audio controls>
+        <source src="./Ark - Halloween Theme Song HD.mp3" type="audio/mpeg">
+        Tu navegador no soporta la reproducción de audio.
+      </audio>
+      <audio id="miAudio" src="./Ark - Halloween Theme Song HD.mp3"></audio>
+<button onclick="playAudio()">Play</button>
+<button onclick="pauseAudio()">Pause</button>
 
-    <script>
-        // URL de donde se obtendrán los datos
-        const url = 'http://localhost:3001/ataudes';
+<script>
+  var miAudio = document.getElementById("miAudio");
 
-        // Función para obtener los datos y crear la tabla
-        async function obtenerDatosYCrearTabla() {
-            try {
-                // Realizar la solicitud HTTP
-                const response = await fetch(url);
-                const datos = await response.json();
+  function playAudio() {
+    miAudio.play();
+  }
 
-                // Obtener la tabla y el cuerpo de la tabla
-                const tablaBody = document.getElementById('tablaBody');
+  function pauseAudio() {
+    miAudio.pause();
+  }
+</script>
 
-                // Iterar sobre los datos y crear filas para la tabla
-                datos.forEach(dato => {
-                    const fila = document.createElement('tr');
-                    fila.innerHTML = `
-                        <td>${dato.id}</td>
-                        <td>${dato.nombre}</td>
-                        <td>${dato.categoria}</td>
-                        <td>${dato.precio}</td>
-                        <td>${dato.material}</td>
-                        <td><img src="${dato.imagen}" alt="${dato.nombre}" width="100"></td>
-                    `;
-                    tablaBody.appendChild(fila);
-                });
-            } catch (error) {
-                console.error('Error al obtener los datos:', error);
-            }
-        }
-
-        // Llamar a la función para crear la tabla al cargar la página
-        window.onload = obtenerDatosYCrearTabla;
-    </script>
+      
 </body>
 </html>
