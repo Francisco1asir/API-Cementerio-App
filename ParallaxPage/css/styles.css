@@ -510,6 +510,7 @@ section.parallax__group.info-container.item.fade-in.visible {
 
 .coffin {
   display: none;
+  width: 100%;
 }
 
 .coffin-container {
