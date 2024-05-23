@@ -101,11 +101,6 @@
       "id": "f973",
       "username": "takeo@gmail.com",
       "password": "7576e039bfc835713eb674f14efc6165fb4412db1bf4aa98806af7bb8a0aaeaa"
-    },
-    {
-      "id": "d049",
-      "username": "varus@lol.com",
-      "password": "67516362c45a2d23c82580cb24adbe6943481d682b516de0f9b25eb066a131cc"
     }
   ],
   "reviews": [
@@ -164,12 +159,6 @@
       "nombre": "Prueba",
       "estrellas": 2,
       "review": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem quisquam sapiente obcaecati odio hic quos eum,Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem quisquam sapiente obcaecati odio hic quos eum,\n\nLorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem quisquam sapiente obcaecati odio hic quos eum,Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem quisquam sapiente obcaecati odio hic quos eum,\n\n"
-    },
-    {
-      "id": "d931",
-      "nombre": "Francisco Parra ",
-      "estrellas": 4,
-      "review": "Masenkooooooooo"
     }
   ]
 }
