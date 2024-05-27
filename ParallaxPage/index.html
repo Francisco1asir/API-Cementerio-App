@@ -293,10 +293,12 @@
                     </div>
                 </div>
             </div>
-    
+
             <div id="coffin2" class="coffin">
                 <div class="coffin-container">
-                    <div id="loading-message2" class="loading-message">Cargando...</div>
+                    <div id="loading-message2" class="loading-message">
+                        <p>Cargando...</p>
+                    </div>
                     <model-viewer id="model-viewer2" camera-controls touch-action="pan-y" disable-pan
                         oncontextmenu="return false;" src="./3d/ataud2/scene.glb"
                         skybox-image="./img/hdrs/fondocoffin3d.hdr" alt="A 3D model of a damaged helmet"
@@ -321,7 +323,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div id="coffin3" class="coffin">
                 <div class="coffin-container">
                     <div id="loading-message3" class="loading-message">Cargando...</div>
@@ -391,6 +393,85 @@
                 </div>
             </div>
         </section>
+
+        <section class="pelicula">
+            <h2>Conoce nuestras canciones</h2>
+            <div class="mainbox">
+                <figure>
+                    <img src="./img/cemen5.jpg" alt="">
+                </figure>
+                <div class="boxcnt">
+                    <p class="flow">LA MAS ESCUCHADA!</p>
+                    <h3>Cementerio Song</h3>
+                    <p class="artist">de Jason Derulo</p>
+
+                    <audio id="audio" src="./audio/Cementerio song.mp3"></audio>
+                    <button id="playPauseBtn"> <i class="fas fa-play"></i>
+                    </button>
+                    <input type="range" id="progressBar" value="0" max="100">
+                </div>
+            </div>
+            <div class="mainbox2">
+                <div class="song-box" data-song="path/to/song1.mp3">
+                  <img src="./img/background.png" alt="Song 1">
+                  <button class="playPauseBtn">
+                    <i class="fas fa-play"></i>
+                  </button>
+                  <div class="info">
+                    <h3>Canción 1</h3>
+                    <p>Artista 1</p>
+                  </div>
+                  <audio class="audio" src="./audio/Cementerio song.mp3"></audio>
+                </div>
+                
+                <div class="song-box" data-song="path/to/song2.mp3">
+                  <img src="path/to/image2.jpg" alt="Song 2">
+                  <button class="playPauseBtn">
+                    <i class="fas fa-play"></i>
+                  </button>
+                  <div class="info">
+                    <h3>Canción 2</h3>
+                    <p>Artista 2</p>
+                  </div>
+                  <audio class="audio" src="path/to/song2.mp3"></audio>
+                </div>
+                <div class="song-box" data-song="path/to/song3.mp3">
+                  <img src="path/to/image3.jpg" alt="Song 3">
+                  <button class="playPauseBtn">
+                    <i class="fas fa-play"></i>
+                  </button>
+                  <div class="info">
+                    <h3>Canción 3</h3>
+                    <p>Artista 3</p>
+                  </div>
+                  <audio class="audio" src="path/to/song3.mp3"></audio>
+                </div>
+                <div class="song-box" data-song="path/to/song4.mp3">
+                  <img src="path/to/image4.jpg" alt="Song 4">
+                  <button class="playPauseBtn">
+                    <i class="fas fa-play"></i>
+                  </button>
+                  <div class="info">
+                    <h3>Canción 4</h3>
+                    <p>Artista 4</p>
+                  </div>
+                  <audio class="audio" src="path/to/song4.mp3"></audio>
+                </div>
+                <div class="song-box" data-song="path/to/song5.mp3">
+                  <img src="path/to/image5.jpg" alt="Song 5">
+                  <button class="playPauseBtn">
+                    <i class="fas fa-play"></i>
+                  </button>
+                  <div class="info">
+                    <h3>Canción 5</h3>
+                    <p>Artista 5</p>
+                  </div>
+                  <audio class="audio" src="path/to/song5.mp3"></audio>
+                </div>
+              </div>
+        </section>
+
+
         <section class="mapa fade-in">
             <h2>Haznos una visita!!</h2>
             <p>API Cementerio se encuentra en Antas Almería, tierra de gente humilde y trabajadora, como nuestra

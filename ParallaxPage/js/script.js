@@ -271,7 +271,7 @@ const formularioReseña = document.getElementById('formulario-reseña');
 formularioReseña.addEventListener('submit', event => {
     event.preventDefault();
 
-    const nuevaReseña = {
+    const nuevaReseña = { 
         nombre: formularioReseña.nombre.value,
         estrellas: parseInt(formularioReseña.estrellas.value),
         review: formularioReseña.review.value
@@ -295,21 +295,10 @@ formularioReseña.addEventListener('submit', event => {
         });
 });
 
-
-// const modelViewer = document.getElementById('envlight-demo');
-// const loadingMessage = document.getElementById('loading-message');
-
-// modelViewer.addEventListener('load', () => {
-//     loadingMessage.style.display = 'none';
-// });
-
-// modelViewer.addEventListener('error', () => {
-//     loadingMessage.textContent = 'Error al cargar el modelo';
-// });
-
+// Texto de cargando para los model-viewers
 document.querySelectorAll('model-viewer').forEach((modelViewer, index) => {
     const loadingMessage = document.getElementById(`loading-message${index + 1}`);
-
+1
     modelViewer.addEventListener('load', () => {
         loadingMessage.style.display = 'none';
     });
@@ -318,3 +307,65 @@ document.querySelectorAll('model-viewer').forEach((modelViewer, index) => {
         loadingMessage.textContent = 'Error al cargar el modelo';
     });
 });
+
+// Pa la musica
+    const audio = document.getElementById('audio');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const progressBar = document.getElementById('progressBar');
+    const playIcon = '<i class="fas fa-play"></i>';
+    const pauseIcon = '<i class="fas fa-pause"></i>';
+
+    // Play/Pause toggle
+    playPauseBtn.addEventListener('click', function () {
+      if (audio.paused) {
+        audio.play();
+        playPauseBtn.innerHTML = pauseIcon;
+      } else {
+        audio.pause();
+        playPauseBtn.innerHTML = playIcon;
+      }
+    });
+
+    // Update progress bar
+    audio.addEventListener('timeupdate', function () {
+      const progress = (audio.currentTime / audio.duration) * 100;
+      progressBar.value = progress;
+      progressBar.style.background = `linear-gradient(to right, #007bff ${progress}%, #ddd ${progress}%)`;
+    });
+
+    // Seek functionality
+    progressBar.addEventListener('input', function () {
+      const seekTime = (progressBar.value / 100) * audio.duration;
+      audio.currentTime = seekTime;
+      progressBar.style.background = `linear-gradient(to right, #007bff ${progressBar.value}%, #ddd ${progressBar.value}%)`;
+    });
+
+//
+const playPauseBtns = document.querySelectorAll('.playPauseBtn');
+      const audios = document.querySelectorAll('.audio');
+      const playIcon2 = '<i class="fas fa-play"></i>';
+      const pauseIcon2 = '<i class="fas fa-pause"></i>';
+
+      playPauseBtns.forEach((btn, index) => {
+        btn.addEventListener('click', function () {
+          const audio = audios[index];
+
+          if (audio.paused) {
+            audios.forEach((a, i) => {
+              if (i !== index) {
+                a.pause();
+                playPauseBtns[i].innerHTML = playIcon;
+              }
+            });
+            audio.play();
+            btn.innerHTML = pauseIcon;
+          } else {
+            audio.pause();
+            btn.innerHTML = playIcon;
+          }
+        });
+
+        audio.addEventListener('ended', function () {
+          btn.innerHTML = playIcon;
+        });
+      });
