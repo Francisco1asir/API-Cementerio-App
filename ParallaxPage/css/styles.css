@@ -149,7 +149,16 @@ header {
   background-attachment: fixed;
   overflow: hidden;
 }
-
+.cajavideo{
+  /* background-color: lightblue; */
+  /* padding: 10px; */
+  width: 100%;
+}
+.cajavideo video{
+  border-radius: 20px;
+  /* margin: 10px; */
+  width: 80%;
+}
 .parallax img {
   position: absolute;
   top: 0;

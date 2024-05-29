@@ -45,7 +45,6 @@
           // Eliminar los datos del usuario del localStorage al hacer clic en cerrar sesion
           localStorage.removeItem('username');
           localStorage.removeItem('token');
-
           // Redirigir al usuario a la página del login despue de cerrar sesión
           window.location.href = './login.html';
         });
@@ -194,7 +193,7 @@
                       <td>${formatNumberWithPoints(item.id)}</td>
                       <td>${item.nombre}</td>
                       <td>${item.categoria}</td>
-                      <td>${formatNumberWithPoints(item.precio)}€</td> <!-- Formatear precio -->
+                      <td>${formatNumberWithPoints(item.precio)}€</td> 
                       <td>${item.material}</td>
                       <td><img src="${item.imagen}" alt="${item.nombre}" width="100"></td>
                       <td><button class="delete-button" data-id="${item.id}"><i class="fa-solid fa-trash"></i></button></td>

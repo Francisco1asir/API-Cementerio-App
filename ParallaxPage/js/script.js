@@ -308,64 +308,43 @@ document.querySelectorAll('model-viewer').forEach((modelViewer, index) => {
     });
 });
 
-// Pa la musica
-    const audio = document.getElementById('audio');
-    const playPauseBtn = document.getElementById('playPauseBtn');
-    const progressBar = document.getElementById('progressBar');
-    const playIcon = '<i class="fas fa-play"></i>';
-    const pauseIcon = '<i class="fas fa-pause"></i>';
+const audio = document.getElementById('audio');
+const video = document.getElementById('video');
+const playPauseBtn = document.getElementById('playPauseBtn');
+const progressBar = document.getElementById('progressBar');
+const playIcon = '<i class="fas fa-play"></i>';
+const pauseIcon = '<i class="fas fa-pause"></i>';
 
-    // Play/Pause toggle
-    playPauseBtn.addEventListener('click', function () {
-      if (audio.paused) {
-        audio.play();
-        playPauseBtn.innerHTML = pauseIcon;
-      } else {
-        audio.pause();
-        playPauseBtn.innerHTML = playIcon;
-      }
-    });
+// Play/Pause toggle
+playPauseBtn.addEventListener('click', function () {
+  if (audio.paused && video.paused) {
+    audio.play();
+    video.play();
+    playPauseBtn.innerHTML = pauseIcon;
+  } else {
+    audio.pause();
+    video.pause();
+    playPauseBtn.innerHTML = playIcon;
+  }
+});
 
-    // Update progress bar
-    audio.addEventListener('timeupdate', function () {
-      const progress = (audio.currentTime / audio.duration) * 100;
-      progressBar.value = progress;
-      progressBar.style.background = `linear-gradient(to right, #007bff ${progress}%, #ddd ${progress}%)`;
-    });
+// Update progress bar
+audio.addEventListener('timeupdate', function () {
+  const progress = (audio.currentTime / audio.duration) * 100;
+  progressBar.value = progress;
+  progressBar.style.background = `linear-gradient(to right, #007bff ${progress}%, #ddd ${progress}%)`;
+});
 
-    // Seek functionality
-    progressBar.addEventListener('input', function () {
-      const seekTime = (progressBar.value / 100) * audio.duration;
-      audio.currentTime = seekTime;
-      progressBar.style.background = `linear-gradient(to right, #007bff ${progressBar.value}%, #ddd ${progressBar.value}%)`;
-    });
+video.addEventListener('timeupdate', function () {
+  const progress = (video.currentTime / video.duration) * 100;
+  progressBar.value = progress;
+  progressBar.style.background = `linear-gradient(to right, #007bff ${progress}%, #ddd ${progress}%)`;
+});
 
-//
-const playPauseBtns = document.querySelectorAll('.playPauseBtn');
-      const audios = document.querySelectorAll('.audio');
-      const playIcon2 = '<i class="fas fa-play"></i>';
-      const pauseIcon2 = '<i class="fas fa-pause"></i>';
-
-      playPauseBtns.forEach((btn, index) => {
-        btn.addEventListener('click', function () {
-          const audio = audios[index];
-
-          if (audio.paused) {
-            audios.forEach((a, i) => {
-              if (i !== index) {
-                a.pause();
-                playPauseBtns[i].innerHTML = playIcon;
-              }
-            });
-            audio.play();
-            btn.innerHTML = pauseIcon;
-          } else {
-            audio.pause();
-            btn.innerHTML = playIcon;
-          }
-        });
-
-        audio.addEventListener('ended', function () {
-          btn.innerHTML = playIcon;
-        });
-      });
+// Seek functionality
+progressBar.addEventListener('input', function () {
+  const seekTime = (progressBar.value / 100) * audio.duration;
+  audio.currentTime = seekTime;
+  video.currentTime = seekTime;
+  progressBar.style.background = `linear-gradient(to right, #007bff ${progressBar.value}%, #ddd ${progressBar.value}%)`;
+});
