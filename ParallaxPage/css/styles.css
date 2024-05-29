@@ -1413,7 +1413,8 @@ div#related-coffins {
 /************************************/
 .mainbox {
   position: relative;
-  width: 100%;
+  width: 90%;
+  margin: 0 auto;
   display: flex;
   padding-left: 5%;
   padding-right: 5%;
@@ -1480,7 +1481,7 @@ button#playPauseBtn{
 
 .song-box img {
   width: 100%;
-  height: auto;
+  height: 130px;
   border-radius: 10px;
 }
 
@@ -1520,3 +1521,4 @@ button#playPauseBtn{
 .song-box button i {
   pointer-events: none;
 }
+
