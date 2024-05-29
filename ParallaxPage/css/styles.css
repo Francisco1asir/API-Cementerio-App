@@ -1465,6 +1465,7 @@ div#related-coffins {
 .boxcnt{
   margin-top: 20px;
   /* background-color: red; */
+  padding-left: 7%;
 }
 button#playPauseBtn{
   background-color: transparent;
