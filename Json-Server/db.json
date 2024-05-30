@@ -54,7 +54,7 @@
       "categoria": "Beco",
       "precio": "7200",
       "material": "Caucho Recicable",
-      "imagen": "https://industriascoins.com/wp-content/uploads/2023/05/20230508_132530.png"
+      "imagen": "https://cardboardcoffincompany.com/wp-content/uploads/2021/01/blue-colour-traditional-coffin.png"
     },
     {
       "id": "5d3a",
@@ -135,12 +135,6 @@
       "id": "4828"
     },
     {
-      "id": "4cf7",
-      "nombre": "Neeko Supp",
-      "estrellas": 5,
-      "review": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem quisquam sapiente obcaecati odio hic quos eum, aperiam cum architecto animi laudantium et maiores dolorem veritatis, nihil rerum eos libero? Iusto!€"
-    },
-    {
       "id": "f1cb",
       "nombre": "Juan Francisco",
       "estrellas": 4,
@@ -157,24 +151,6 @@
       "nombre": "Juan Pamela",
       "estrellas": 3,
       "review": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem quisquam sapiente"
-    },
-    {
-      "id": "0f9f",
-      "nombre": "Manuel Perez",
-      "estrellas": 4,
-      "review": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem quisquam sapiente obcaecati odio hic quos eum,Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem quisquam sapiente obcaecati odio hic quos eum,"
-    },
-    {
-      "id": "9f36",
-      "nombre": "Prueba",
-      "estrellas": 2,
-      "review": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem quisquam sapiente obcaecati odio hic quos eum,Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem quisquam sapiente obcaecati odio hic quos eum,\n\nLorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem quisquam sapiente obcaecati odio hic quos eum,Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem quisquam sapiente obcaecati odio hic quos eum,\n\n"
-    },
-    {
-      "id": "b8f4",
-      "nombre": "Francisco",
-      "estrellas": 2,
-      "review": "Los ataudes son la ostia"
     }
   ]
 }

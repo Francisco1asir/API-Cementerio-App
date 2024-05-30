@@ -106,7 +106,6 @@ function showCoffin(index) {
 // });
 
 
-
 /************** JSON SERVER ******************/
 document.addEventListener("DOMContentLoaded", () => {
     const ataudesContainer = document.getElementById('coffin-list');
@@ -348,3 +347,32 @@ progressBar.addEventListener('input', function () {
   video.currentTime = seekTime;
   progressBar.style.background = `linear-gradient(to right, #007bff ${progressBar.value}%, #ddd ${progressBar.value}%)`;
 });
+
+const playPauseBtns = document.querySelectorAll('.playPauseBtn');
+const audios = document.querySelectorAll('.audio');
+
+playPauseBtns.forEach((btn, index) => {
+    const audio = audios[index];
+    
+    btn.addEventListener('click', function () {
+        if (audio.paused) {
+            audios.forEach((a, i) => {9
+                if (i !== index) {
+                    a.pause();
+                    playPauseBtns[i].innerHTML = playIcon;
+                }
+            });
+            audio.play();
+            btn.innerHTML = pauseIcon;
+        } else {
+            audio.pause();
+            btn.innerHTML = playIcon;
+        }
+    });
+
+    audio.addEventListener('ended', function () {
+        btn.innerHTML = playIcon;
+    });
+});
+
+

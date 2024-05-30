@@ -5,7 +5,6 @@ body#back{
 body#back header{
     position: relative;
 }
-
 h1{
     font-size: 30px;
     color: #fff;
@@ -117,7 +116,12 @@ h1{
         width: 100%;
     }
 }
-
+button.delete-btn {
+  background: transparent;
+  border: none;
+  color: #a71f1f;
+  font-size: 30px;
+}
 
 .tbl-header,
 .tbl-content {
@@ -138,3 +142,20 @@ th, td {
         padding: 10px; 
     }
 }
+
+
+.row2s #col{
+}
+
+.row2s #col .testimonial{
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  background-color: #202020;
+
+}
+
+.row2s #col img{
+  display: none;
+}
+

@@ -592,7 +592,7 @@ section.parallax__group.info-container.item.fade-in.visible {
 
 /**************RESEÑAS***************/
 
-.testimonials {
+.row2 .testimonials {
   padding: 40px 0;
   box-shadow: white 10px;
   color: #434343;
@@ -623,13 +623,13 @@ section.parallax__group.info-container.item.fade-in.visible {
   align-items: center;
 }
 
-#col {
+.row2 #col {
   box-sizing: border-box;
   padding: 15px;
   gap: 10px;
   display: flex;
 }
-.testimonial p {
+.row2 .testimonial p {
   overflow: hidden; 
   text-overflow: ellipsis; 
   display: -webkit-box;
@@ -637,12 +637,12 @@ section.parallax__group.info-container.item.fade-in.visible {
   -webkit-box-orient: vertical;
 }
 
-#col {
+.row2 #col {
   text-align: center; 
 }
 
 
-.testimonial {
+.row2 .testimonial {
   display: inline-block; /* Convertir los elementos en bloques en línea */
   background-color: #202020;
   padding: 30px;
@@ -1311,11 +1311,11 @@ ul#menu {
   align-items: center;
 }
 
-#col .testimonial {
+.row2 #col .testimonial {
   display: none; 
 }
 
-#col .testimonial:nth-last-child(-n+3) {
+.row2 #col .testimonial:nth-last-child(-n+3) {
   display: block; 
 }
 

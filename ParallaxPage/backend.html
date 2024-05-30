@@ -6,10 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/styles.css">
   <link rel="stylesheet" href="./css/querys.css">
+  <script src="./js/reviewsbackend.js"></script>
   <link rel="stylesheet" href="./css/backend.css">
   <script src="./js/vuelve.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <script src="./js/script.js"></script>
+  <!-- <script src="./js/script.js"></script> -->
   <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.freepik.com/512/2983/2983665.png">
   <title>API Cementerio</title>
 </head>
@@ -75,6 +76,8 @@
     </nav>
   </header>
   <section>
+
+
     <form id="formulario-ataud">
     <label for="buscador">Buscar:</label>
     <input type="text" id="buscador" name="buscador">
@@ -99,6 +102,7 @@
       <input type="text" id="imagen" name="imagen" required><br>
       <button type="submit" class="insert-button">+</button>
     </form>
+
     <div class="tbl-header">
       <table cellpadding="0" cellspacing="0" border="0">
         <thead>
@@ -121,6 +125,9 @@
         </tbody>
       </table>
     </div>
+    <div class="row2s">
+      <div id="col"></div>
+  </div>
   </section>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
