@@ -111,6 +111,11 @@
       "id": "ac44",
       "username": "ryoiki@tenkai.mizushi",
       "password": "771ea9a5262240db2db7cd3ac8e9e870d64fa08dba3d7953fb7e51ceb00744c1"
+    },
+    {
+      "id": "1465",
+      "username": "sukuna@gmail.com",
+      "password": "2c7a43d27e491a3c2562fc9cea84d3c5130ba289ae50e38c3cd717182acf5a0b"
     }
   ],
   "reviews": [
@@ -151,6 +156,12 @@
       "nombre": "Juan Pamela",
       "estrellas": 3,
       "review": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem quisquam sapiente"
+    },
+    {
+      "id": "009d",
+      "nombre": "Gojo Satoru",
+      "estrellas": 3,
+      "review": "Datekimi Yoaimo"
     }
   ]
 }
