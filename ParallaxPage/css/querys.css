@@ -69,6 +69,8 @@
         max-width: 100%;
         height: auto;
     }
+    
+
 
     .cemen-antas img {
         width: 100%;
@@ -137,6 +139,10 @@
     }
     #col{
         flex-wrap: wrap;
+    }
+    .row2 #col .testimonial{
+        /* background-attachment: red !important; */
+        width: 100%;
     }
 }
 

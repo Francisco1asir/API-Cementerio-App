@@ -121,6 +121,12 @@ button.delete-btn {
   border: none;
   color: #a71f1f;
   font-size: 30px;
+  cursor: pointer;
+  transition: .4s ease;
+}
+button.delete-btn:hover{
+  color: white;
+  transform: rotate(40deg);
 }
 
 .tbl-header,
