@@ -149,6 +149,16 @@ header {
   background-attachment: fixed;
   overflow: hidden;
 }
+#video{
+  width: 450px;
+  margin: 10px;
+  border-radius: 20px;
+}
+@media screen and (max-width: 600px) {
+  #video{
+    width: 95% !important;
+  }
+}
 .cajavideo{
   /* background-color: lightblue; */
   /* padding: 10px; */
@@ -1438,7 +1448,7 @@ div#related-coffins {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url(../img/cemen5.jpg);
+  background-image: url(../img/purplesunset.jpg);
   background-repeat: no-repeat;
   background-size: 100% 100%;
   filter: blur(15px); 

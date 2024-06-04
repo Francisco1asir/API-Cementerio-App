@@ -156,12 +156,6 @@
       "nombre": "Juan Pamela",
       "estrellas": 3,
       "review": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem quisquam sapiente"
-    },
-    {
-      "id": "009d",
-      "nombre": "Gojo Satoru",
-      "estrellas": 3,
-      "review": "Datekimi Yoaimo"
     }
   ]
 }
